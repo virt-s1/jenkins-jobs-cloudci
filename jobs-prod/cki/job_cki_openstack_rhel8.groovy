@@ -9,7 +9,8 @@ folder(folderName) {
 }
 
 [
-    [name: 'rhel-8.y', filter: '^rhel8$', test_os: 'rhel-8-4'],
+    [name: 'rhel-8.y', filter: '^rhel8$', test_os: 'rhel-8-5'],
+    [name: 'rhel-8.4.z', filter: '^rhel84-z$', test_os: 'rhel-8-4'],
     [name: 'rhel-8.3.z', filter: '^rhel83-z$', test_os: 'rhel-8-3'],
     [name: 'rhel-8.2.z', filter: '^rhel82-z$', test_os: 'rhel-8-2'],
     [name: 'rhel-8.1.z', filter: '^rhel81-z$', test_os: 'rhel-8-1'],
