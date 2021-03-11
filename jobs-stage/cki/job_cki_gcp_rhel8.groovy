@@ -24,11 +24,11 @@ pipelineJob("$folderName/rhel-8.5-gcp-n2d-standard-2") {
                     remote {
                         url(repo)
                     }
-                    branch('*/master')
+                    branch('*/stage')
                 }
             }
             lightweight(true)
-            scriptPath("cloudci/Jenkinsfile.gcp.stage")
+            scriptPath("cloudci/Jenkinsfile.gcp")
         }
     }
 }

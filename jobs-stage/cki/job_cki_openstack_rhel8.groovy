@@ -22,11 +22,11 @@ pipelineJob("$folderName/rhel-8.5-openstack") {
                     remote {
                         url(repo)
                     }
-                    branch('*/master')
+                    branch('*/stage')
                 }
             }
             lightweight(true)
-            scriptPath('cloudci/Jenkinsfile.openstack.stage')
+            scriptPath('cloudci/Jenkinsfile.openstack')
         }
     }
 }

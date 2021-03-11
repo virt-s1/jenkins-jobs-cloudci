@@ -30,11 +30,11 @@ folder(folderName) {
                         remote {
                             url(repo)
                         }
-                        branch('*/master')
+                        branch('*/stage')
                     }
                 }
                 lightweight(true)
-                scriptPath('cloudci/Jenkinsfile.esxi.stage')
+                scriptPath('cloudci/Jenkinsfile.esxi')
             }
         }
     }
