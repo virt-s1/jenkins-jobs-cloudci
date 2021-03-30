@@ -26,7 +26,7 @@ pipelineJob("$folderName/rhel-8.5-gcp") {
                 }
             }
             lightweight(true)
-            scriptPath("cloudci/Jenkinsfile.parallel")
+            scriptPath("cloudci/Jenkinsfile.parallel.gcp")
         }
     }
 }
