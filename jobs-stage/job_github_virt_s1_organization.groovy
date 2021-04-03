@@ -20,6 +20,13 @@ organizationFolder('Virt-S1') {
             }
         }
     }
+    configure {
+        def traits = it / navigators / 'org.jenkinsci.plugins.github__branch__source.GitHubSCMNavigator' / traits
+        traits << 'org.jenkinsci.plugins.github_branch_source.ForkPullRequestDiscoveryTrait' {
+            strategyId 2
+            trust(class: 'org.jenkinsci.plugins.github_branch_source.ForkPullRequestDiscoveryTrait$TrustPermission')
+        }
+    }
     projectFactories {
         workflowMultiBranchProjectFactory {
             scriptPath('kitebot/Jenkinsfile')
