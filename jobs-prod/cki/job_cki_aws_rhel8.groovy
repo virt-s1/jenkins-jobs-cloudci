@@ -46,6 +46,10 @@ folder(folderName) {
                                                 field('$.system[0].stream')
                                                 expectedValue("${config.filter}")
                                             }
+                                            msgCheck {
+                                                field('$.merge_request.merge_request_url')
+                                                expectedValue('.*kernel/rhel-.*')
+                                            }
                                         }
                                     }
                                 }

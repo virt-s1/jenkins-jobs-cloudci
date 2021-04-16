@@ -50,6 +50,10 @@ folder(folderName) {
                                                 field('$.build_info[*].architecture')
                                                 expectedValue('x86_64')
                                             }
+                                            msgCheck {
+                                                field('$.merge_request.merge_request_url')
+                                                expectedValue('.*kernel/rhel-.*')
+                                            }
                                         }
                                     }
                                 }
