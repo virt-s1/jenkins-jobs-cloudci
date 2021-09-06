@@ -22,46 +22,6 @@ folder(folderName) {
             stringParam('CI_MESSAGE', '{}', 'Red Hat UMB Message Body')
             stringParam('TEST_OS', "${config.test_os}", 'test os')
         }
-        properties {
-            pipelineTriggers {
-                triggers {
-                    ciBuildTrigger {
-                        noSquash(true)
-                        providers {
-                            providerDataEnvelope{
-                                providerData {
-                                    activeMQSubscriber {
-                                        name("Red Hat UMB")
-                                        overrides {
-                                            topic("Consumer.rh-jenkins-ci-plugin.${UUID.randomUUID().toString()}.VirtualTopic.eng.cki.ready_for_test")
-                                        }
-                                        selector("")
-                                        checks {
-                                            msgCheck {
-                                                field('$.cki_finished')
-                                                expectedValue('false')
-                                            }
-                                            msgCheck {
-                                                field('$.system[0].stream')
-                                                expectedValue("${config.filter}")
-                                            }
-                                            msgCheck {
-                                                field('$.build_info[*].architecture')
-                                                expectedValue('x86_64')
-                                            }
-                                            msgCheck {
-                                                field('$.merge_request.merge_request_url')
-                                                expectedValue('.*kernel/rhel-.*')
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
         definition {
             cpsScm {
                 scm {

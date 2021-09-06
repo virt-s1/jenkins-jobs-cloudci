@@ -1,5 +1,5 @@
 job('SEED') {
-    label('container-fedora-33-prod')
+    label('container-fedora-34-prod')
     scm {
         git{
             remote {
