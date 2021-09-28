@@ -9,15 +9,15 @@ folder(folderName) {
 }
 
 [
-    [name: 'rhel-8.y', filter: '^rhel8$', test_os: 'rhel-8-5'],
-    [name: 'rhel-8.4.z', filter: '^rhel84-z$', test_os: 'rhel-8-4'],
-    [name: 'rhel-8.3.z', filter: '^rhel83-z$', test_os: 'rhel-8-3'],
-    [name: 'rhel-8.2.z', filter: '^rhel82-z$', test_os: 'rhel-8-2'],
-    [name: 'rhel-8.1.z', filter: '^rhel81-z$', test_os: 'rhel-8-1'],
-    [name: 'rhel-8.0.z', filter: '^rhel80-z$', test_os: 'rhel-8-0'],
+    [name: 'rhel-9.y', filter: '^rhel9$', test_os: 'rhel-9-0', mr_url_check: '.*kernel/centos-.*'],
+    [name: 'rhel-8.y', filter: '^rhel8$', test_os: 'rhel-8-5', mr_url_check: '.*kernel/rhel-.*'],
+    [name: 'rhel-8.4.z', filter: '^rhel84-z$', test_os: 'rhel-8-4', mr_url_check: '.*kernel/rhel-.*'],
+    [name: 'rhel-8.3.z', filter: '^rhel83-z$', test_os: 'rhel-8-3', mr_url_check: '.*kernel/rhel-.*'],
+    [name: 'rhel-8.2.z', filter: '^rhel82-z$', test_os: 'rhel-8-2', mr_url_check: '.*kernel/rhel-.*'],
+    [name: 'rhel-8.1.z', filter: '^rhel81-z$', test_os: 'rhel-8-1', mr_url_check: '.*kernel/rhel-.*'],
 ].each { Map config ->
-    pipelineJob("$folderName/${config.name}-aws-ec2") {
-        description("run ${config.name} stream kernel test on aws ec2")
+    pipelineJob("$folderName/${config.name}-openstack") {
+        description("run ${config.name} stream kernel test on openstack")
         logRotator(-1, 20, -1, -1)
         parameters {
             stringParam('CI_MESSAGE', '{}', 'Red Hat UMB Message Body')
@@ -47,8 +47,12 @@ folder(folderName) {
                                                 expectedValue("${config.filter}")
                                             }
                                             msgCheck {
+                                                field('$.build_info[*].architecture')
+                                                expectedValue('x86_64')
+                                            }
+                                            msgCheck {
                                                 field('$.merge_request.merge_request_url')
-                                                expectedValue('.*kernel/rhel-.*')
+                                                expectedValue("${config.mr_url_check}")
                                             }
                                         }
                                     }
@@ -70,7 +74,7 @@ folder(folderName) {
                     }
                 }
                 lightweight(true)
-                scriptPath("cloudci/Jenkinsfile.aws")
+                scriptPath('cloudci/Jenkinsfile.openstack')
             }
         }
     }
