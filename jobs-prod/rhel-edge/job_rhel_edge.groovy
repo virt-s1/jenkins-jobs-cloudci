@@ -34,6 +34,31 @@ pipelineJob("$folderName/$jobName") {
                                 }
                             }
                         }
+                        providerDataEnvelope{
+                            providerData {
+                                activeMQSubscriber {
+                                    name("Red Hat UMB")
+                                    overrides {
+                                        topic("Consumer.rh-jenkins-ci-plugin.${UUID.randomUUID().toString()}.VirtualTopic.eng.cts.compose-tagged")
+                                    }
+                                    selector("")
+                                    checks {
+                                        msgCheck {
+                                            field('$.tag')
+                                            expectedValue('^nightly$')
+                                        }
+                                        msgCheck {
+                                            field('$.compose.compose_info.payload.release.short')
+                                            expectedValue('RHEL')
+                                        }
+                                        msgCheck {
+                                            field('$.compose.compose_info.payload.release.version')
+                                            expectedValue('8.6.0')
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
