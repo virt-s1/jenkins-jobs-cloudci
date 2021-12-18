@@ -10,11 +10,12 @@ folder(folderName) {
 
 [
     // at 00:00 on day-of-month 1 in every 6th month
-    [name: 'RHEL-8.1.z', test_os: 'rhel-8-1', cron: '0 0 2 */6 *'],
     [name: 'RHEL-8.2.z', test_os: 'rhel-8-2', cron: '0 0 3 */6 *'],
     [name: 'RHEL-8.3.z', test_os: 'rhel-8-3', cron: '0 0 4 */6 *'],
     [name: 'RHEL-8.4.z', test_os: 'rhel-8-4', cron: '0 0 5 */6 *'],
-    [name: 'RHEL-8.5.0', test_os: 'rhel-8-5', cron: '20 4 * * 4'],
+    [name: 'RHEL-8.5.z', test_os: 'rhel-8-5', cron: '0 0 6 */6 *'],
+    [name: 'RHEL-8.6.0', test_os: 'rhel-8-6', cron: '20 7 * * 4'],
+    [name: 'RHEL-9.0.0', test_os: 'rhel-9-0', cron: '20 7 * * 4'],
 ].each { Map config ->
     pipelineJob("$folderName/${config.name}-azure-x86_64-image") {
         description("build and upload ${config.name} azure x86_64 image")
