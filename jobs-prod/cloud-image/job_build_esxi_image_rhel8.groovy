@@ -21,7 +21,7 @@ folder(folderName) {
         description("build and upload ${config.name} esxi image")
         logRotator(-1, 20, -1, -1)
         parameters {
-            stringParam('VSPHERE_SERVER', '10.73.73.245', 'vsphere server IP address')
+            stringParam('VSPHERE_SERVER', '10.73.75.144', 'vsphere server IP address')
             stringParam('ESXI_HOST', '10.16.209.80', 'running test on this host')
             stringParam('ESXI_DATACENTER', 'Datacenter7.0', 'datacenter name of above host')
             stringParam('ESXI_DATASTORE', 'datastore-80', 'datacenter name of above host')
