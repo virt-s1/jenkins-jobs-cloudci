@@ -16,6 +16,26 @@ pipelineJob("$folderName/$jobName") {
     logRotator(-1, 20, -1, -1)
     parameters {
         stringParam('CI_MESSAGE', '{}', 'Red Hat UMB Message Body')
+        choiceParam('BUILDING_TRIGGER', ['true', 'false'], 'Manual trigger building jobs')
+        choiceParam('RHEL83_VIRT', ['true', 'false'], 'Manual trigger RHEL 8.3 virt test')
+        choiceParam('RHEL84_VIRT', ['true', 'false'], 'Manual trigger RHEL 8.4 virt test')
+        choiceParam('RHEL84_NG_VIRT', ['true', 'false'], 'Manual trigger RHEL 8.4 ng virt test')
+        choiceParam('RHEL84_BARE', ['true', 'false'], 'Manual trigger RHEL 8.4 bare metal test')
+        choiceParam('RHEL85_VIRT', ['true', 'false'], 'Manual trigger RHEL 8.5 virt test')
+        choiceParam('RHEL85_NG_VIRT', ['true', 'false'], 'Manual trigger RHEL 8.5 ng virt test')
+        choiceParam('RHEL85_RAW', ['true', 'false'], 'Manual trigger RHEL 8.5 raw image test')
+        choiceParam('RHEL85_SIMPLIFIED', ['true', 'false'], 'Manual trigger RHEL 8.5 simplified installer test')
+        choiceParam('RHEL85_BARE', ['true', 'false'], 'Manual trigger RHEL 8.5 bare metal test')
+        choiceParam('RHEL86_VIRT', ['true', 'false'], 'Manual trigger RHEL 8.6 virt test')
+        choiceParam('RHEL86_NG_VIRT', ['true', 'false'], 'Manual trigger RHEL 8.6 ng virt test')
+        choiceParam('RHEL86_RAW', ['true', 'false'], 'Manual trigger RHEL 8.6 raw image test')
+        choiceParam('RHEL86_SIMPLIFIED', ['true', 'false'], 'Manual trigger RHEL 8.6 simplified installer test')
+        choiceParam('RHEL86_BARE', ['true', 'false'], 'Manual trigger RHEL 8.6 bare metal test')
+        choiceParam('RHEL90_VIRT', ['true', 'false'], 'Manual trigger RHEL 9.0 virt test')
+        choiceParam('RHEL90_NG_VIRT', ['true', 'false'], 'Manual trigger RHEL 9.0 ng virt test')
+        choiceParam('RHEL90_RAW', ['true', 'false'], 'Manual trigger RHEL 9.0 raw image test')
+        choiceParam('RHEL90_SIMPLIFIED', ['true', 'false'], 'Manual trigger RHEL 9.0 simplified installer test')
+        choiceParam('RHEL90_BARE', ['true', 'false'], 'Manual trigger RHEL 9.0 bare metal test')
     }
     properties {
         pipelineTriggers {
