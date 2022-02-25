@@ -48,7 +48,7 @@ pipelineJob("$folderName/$jobName") {
                                 activeMQSubscriber {
                                     name("Red Hat UMB")
                                     overrides {
-                                        topic("Consumer.rh-jenkins-ci-plugin.${UUID.randomUUID().toString()}.VirtualTopic.eng.pungi.status-change")
+                                        topic("Consumer.edge-qe-jenkins.${UUID.randomUUID().toString()}.VirtualTopic.eng.pungi.status-change")
                                     }
                                     selector("status = 'FINISHED' AND compose_type = 'nightly' AND release_short = 'RHEL' AND (release_version LIKE '8.3%' OR release_version LIKE '8.4%' OR release_version LIKE '8.5%')")
                                 }
@@ -59,7 +59,7 @@ pipelineJob("$folderName/$jobName") {
                                 activeMQSubscriber {
                                     name("Red Hat UMB")
                                     overrides {
-                                        topic("Consumer.rh-jenkins-ci-plugin.${UUID.randomUUID().toString()}.VirtualTopic.eng.cts.compose-tagged")
+                                        topic("Consumer.edge-qe-jenkins.${UUID.randomUUID().toString()}.VirtualTopic.eng.cts.compose-tagged")
                                     }
                                     selector("")
                                     checks {
@@ -84,7 +84,7 @@ pipelineJob("$folderName/$jobName") {
                                 activeMQSubscriber {
                                     name("Red Hat UMB")
                                     overrides {
-                                        topic("Consumer.rh-jenkins-ci-plugin.${UUID.randomUUID().toString()}.VirtualTopic.eng.cts.compose-tagged")
+                                        topic("Consumer.edge-qe-jenkins.${UUID.randomUUID().toString()}.VirtualTopic.eng.cts.compose-tagged")
                                     }
                                     selector("")
                                     checks {

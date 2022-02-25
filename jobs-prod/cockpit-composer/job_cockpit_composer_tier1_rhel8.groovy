@@ -28,7 +28,7 @@ pipelineJob("$folderName/$jobName") {
                                 activeMQSubscriber {
                                     name("Red Hat UMB")
                                     overrides {
-                                        topic("Consumer.rh-jenkins-ci-plugin.${UUID.randomUUID().toString()}.VirtualTopic.eng.brew.task.closed")
+                                        topic("Consumer.edge-qe-jenkins.${UUID.randomUUID().toString()}.VirtualTopic.eng.brew.task.closed")
                                     }
                                     selector("method = 'build' AND new = 'CLOSED'")
                                     checks {

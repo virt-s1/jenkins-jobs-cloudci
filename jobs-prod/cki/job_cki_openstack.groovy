@@ -34,7 +34,7 @@ folder(folderName) {
                                     activeMQSubscriber {
                                         name("Red Hat UMB")
                                         overrides {
-                                            topic("Consumer.rh-jenkins-ci-plugin.${UUID.randomUUID().toString()}.VirtualTopic.eng.cki.ready_for_test")
+                                            topic("Consumer.edge-qe-jenkins.${UUID.randomUUID().toString()}.VirtualTopic.eng.cki.ready_for_test")
                                         }
                                         selector("")
                                         checks {
