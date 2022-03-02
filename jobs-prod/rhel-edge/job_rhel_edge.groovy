@@ -16,11 +16,6 @@ pipelineJob("$folderName/$jobName") {
     logRotator(-1, 20, -1, -1)
     parameters {
         stringParam('CI_MESSAGE', '{}', 'Red Hat UMB Message Body')
-        choiceParam('BUILDING_TRIGGER', ['true', 'false'], 'Manual trigger building jobs')
-        choiceParam('RHEL83_VIRT', ['true', 'false'], 'Manual trigger RHEL 8.3 virt test')
-        choiceParam('RHEL84_VIRT', ['true', 'false'], 'Manual trigger RHEL 8.4 virt test')
-        choiceParam('RHEL84_NG_VIRT', ['true', 'false'], 'Manual trigger RHEL 8.4 ng virt test')
-        choiceParam('RHEL84_BARE', ['true', 'false'], 'Manual trigger RHEL 8.4 bare metal test')
         choiceParam('RHEL85_VIRT', ['true', 'false'], 'Manual trigger RHEL 8.5 virt test')
         choiceParam('RHEL85_NG_VIRT', ['true', 'false'], 'Manual trigger RHEL 8.5 ng virt test')
         choiceParam('RHEL85_RAW', ['true', 'false'], 'Manual trigger RHEL 8.5 raw image test')
@@ -60,7 +55,7 @@ pipelineJob("$folderName/$jobName") {
                                     overrides {
                                         topic("Consumer.edge-qe-jenkins.${UUID.randomUUID().toString()}.VirtualTopic.eng.pungi.status-change")
                                     }
-                                    selector("status = 'FINISHED' AND compose_type = 'nightly' AND release_short = 'RHEL' AND (release_version LIKE '8.3%' OR release_version LIKE '8.4%' OR release_version LIKE '8.5%')")
+                                    selector("status = 'FINISHED' AND compose_type = 'nightly' AND release_short = 'RHEL' AND (release_version LIKE '8.5%')")
                                 }
                             }
                         }
