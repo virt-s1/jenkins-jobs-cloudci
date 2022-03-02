@@ -14,6 +14,12 @@ folder(folderName) {
 pipelineJob("$folderName/$jobName") {
     description(jobDescription)
     logRotator(-1, 20, -1, -1)
+    parameters {
+        choiceParam('RHEL86', ['true', 'false'], 'Manual trigger RHEL 8.6 image building')
+        choiceParam('RHEL86-RT', ['true', 'false'], 'Manual trigger RHEL 8.6 rt kernel image building')
+        choiceParam('RHEL90', ['true', 'false'], 'Manual trigger RHEL 9.0 image building')
+        choiceParam('RHEL90-RT', ['true', 'false'], 'Manual trigger RHEL 9.0 rt kernel image building')
+    }
     definition {
         cpsScm {
             scm {
