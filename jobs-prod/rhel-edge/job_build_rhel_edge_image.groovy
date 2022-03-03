@@ -19,6 +19,10 @@ pipelineJob("$folderName/$jobName") {
         choiceParam('RHEL86-RT', ['true', 'false'], 'Manual trigger RHEL 8.6 rt kernel image building')
         choiceParam('RHEL90', ['true', 'false'], 'Manual trigger RHEL 9.0 image building')
         choiceParam('RHEL90-RT', ['true', 'false'], 'Manual trigger RHEL 9.0 rt kernel image building')
+        choiceParam('CS8', ['true', 'false'], 'Manual trigger CS8 image building')
+        choiceParam('CS8-RT', ['true', 'false'], 'Manual trigger CS8 rt kernel image building')
+        choiceParam('CS9', ['true', 'false'], 'Manual trigger CS9 image building')
+        choiceParam('CS9-RT', ['true', 'false'], 'Manual trigger CS9 rt kernel image building')
     }
     definition {
         cpsScm {
