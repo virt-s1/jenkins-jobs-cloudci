@@ -21,11 +21,15 @@ pipelineJob("$folderName/$jobName") {
         choiceParam('RHEL90_RAW', ['true', 'false'], 'Manual trigger RHEL 9.0 raw image test')
         choiceParam('RHEL90_SIMPLIFIED', ['true', 'false'], 'Manual trigger RHEL 9.0 simplified installer test')
         choiceParam('RHEL90_BARE', ['true', 'false'], 'Manual trigger RHEL 9.0 bare metal test')
+        choiceParam('RHEL90_REBASE', ['true', 'false'], 'Manual trigger RHEL 9.0 rebase test')
+        choiceParam('RHEL90_8TO9', ['true', 'false'], 'Manual trigger RHEL 8 to 9 upgrade test')
         choiceParam('CS9_VIRT', ['true', 'false'], 'Manual trigger CS9 virt test')
         choiceParam('CS9_NG_VIRT', ['true', 'false'], 'Manual trigger CS9 ng virt test')
         choiceParam('CS9_RAW', ['true', 'false'], 'Manual trigger CS9 raw image test')
         choiceParam('CS9_SIMPLIFIED', ['true', 'false'], 'Manual trigger CS9 simplified installer test')
         choiceParam('CS9_BARE', ['true', 'false'], 'Manual trigger CS9 bare metal test')
+        choiceParam('CS9_REBASE', ['true', 'false'], 'Manual trigger CS9 rebase test')
+        choiceParam('CS9_8TO9', ['true', 'false'], 'Manual trigger CS8 to CS9 upgrade test')
     }
     properties {
         pipelineTriggers {
