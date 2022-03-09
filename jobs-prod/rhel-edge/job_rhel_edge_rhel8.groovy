@@ -25,11 +25,13 @@ pipelineJob("$folderName/$jobName") {
         choiceParam('RHEL86_NG_VIRT', ['true', 'false'], 'Manual trigger RHEL 8.6 ng virt test')
         choiceParam('RHEL86_RAW', ['true', 'false'], 'Manual trigger RHEL 8.6 raw image test')
         choiceParam('RHEL86_SIMPLIFIED', ['true', 'false'], 'Manual trigger RHEL 8.6 simplified installer test')
+        choiceParam('RHEL86_REBASE', ['true', 'false'], 'Manual trigger RHEL 8.6 rebase test')
         choiceParam('RHEL86_BARE', ['true', 'false'], 'Manual trigger RHEL 8.6 bare metal test')
         choiceParam('CS8_VIRT', ['true', 'false'], 'Manual trigger CS8 virt test')
         choiceParam('CS8_NG_VIRT', ['true', 'false'], 'Manual trigger CS8 ng virt test')
         choiceParam('CS8_RAW', ['true', 'false'], 'Manual trigger CS8 raw image test')
         choiceParam('CS8_SIMPLIFIED', ['true', 'false'], 'Manual trigger CS8 simplified installer test')
+        choiceParam('CS8_REBASE', ['true', 'false'], 'Manual trigger CS8 rebase test')
         choiceParam('CS8_BARE', ['true', 'false'], 'Manual trigger CS8 bare metal test')
     }
     properties {
