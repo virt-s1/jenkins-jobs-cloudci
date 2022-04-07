@@ -1,6 +1,6 @@
 // Folder name and description
 String folderName = 'rhel-edge'
-String folderDescription = 'CI for rhel 8 edge image building and installation'
+String folderDescription = 'CI for rhel edge image building and installation'
 // Job name and description
 String jobName = 'build_rhel_edge_image'
 String jobDescription = 'daily build container image and running on OCP4'
@@ -15,14 +15,9 @@ pipelineJob("$folderName/$jobName") {
     description(jobDescription)
     logRotator(-1, 20, -1, -1)
     parameters {
-        choiceParam('RHEL86', ['true', 'false'], 'Manual trigger RHEL 8.6 image building')
         choiceParam('RHEL86-RT', ['true', 'false'], 'Manual trigger RHEL 8.6 rt kernel image building')
-        choiceParam('RHEL90', ['true', 'false'], 'Manual trigger RHEL 9.0 image building')
-        choiceParam('RHEL90-RT', ['true', 'false'], 'Manual trigger RHEL 9.0 rt kernel image building')
+        choiceParam('RHEL87-RT', ['true', 'false'], 'Manual trigger RHEL 8.7 rt kernel image building')
         choiceParam('CS8', ['true', 'false'], 'Manual trigger CS8 image building')
-        choiceParam('CS8-RT', ['true', 'false'], 'Manual trigger CS8 rt kernel image building')
-        choiceParam('CS9', ['true', 'false'], 'Manual trigger CS9 image building')
-        choiceParam('CS9-RT', ['true', 'false'], 'Manual trigger CS9 rt kernel image building')
     }
     definition {
         cpsScm {
