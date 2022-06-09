@@ -9,11 +9,11 @@ folder(folderName) {
 }
 
 [
-    [name: 'rhel-9.y', filter: '^rhel9$', test_os: 'rhel-9-0', mr_url_check: '.*kernel/centos-.*'],
-    [name: 'rhel-8.y', filter: '^rhel8$', test_os: 'rhel-8-6', mr_url_check: '.*kernel/rhel-.*'],
-    [name: 'rhel-8.5.z', filter: '^rhel85-z$', test_os: 'rhel-8-5', mr_url_check: '.*kernel/rhel-.*'],
+    [name: 'rhel-9.y', filter: '^rhel9$', test_os: 'rhel-9-1', mr_url_check: '.*kernel/centos-.*'],
+    [name: 'rhel-8.y', filter: '^rhel8$', test_os: 'rhel-8-7', mr_url_check: '.*kernel/rhel-.*'],
+    [name: 'rhel-9.0.z', filter: '^rhel90-z$', test_os: 'rhel-9-0', mr_url_check: '.*kernel/rhel-.*'],
+    [name: 'rhel-8.6.z', filter: '^rhel86-z$', test_os: 'rhel-8-6', mr_url_check: '.*kernel/rhel-.*'],
     [name: 'rhel-8.4.z', filter: '^rhel84-z$', test_os: 'rhel-8-4', mr_url_check: '.*kernel/rhel-.*'],
-    [name: 'rhel-8.3.z', filter: '^rhel83-z$', test_os: 'rhel-8-3', mr_url_check: '.*kernel/rhel-.*'],
     [name: 'rhel-8.2.z', filter: '^rhel82-z$', test_os: 'rhel-8-2', mr_url_check: '.*kernel/rhel-.*'],
 ].each { Map config ->
     pipelineJob("$folderName/${config.name}-azure") {
