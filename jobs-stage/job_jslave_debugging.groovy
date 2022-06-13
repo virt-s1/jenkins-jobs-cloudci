@@ -1,5 +1,5 @@
 job('jslave-container-debug') {
-    label('container-fedora-33-stage')
+    label('container-fedora-36-stage')
     wrappers {
         timestamps()
     }
