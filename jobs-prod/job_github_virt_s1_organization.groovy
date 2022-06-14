@@ -25,11 +25,6 @@ organizationFolder('Virt-S1') {
             scriptPath('kitebot/Jenkinsfile')
         }
     }
-    triggers {
-        periodicFolderTrigger {
-            interval('1440')
-        }
-    }
     orphanedItemStrategy {
         discardOldItems {
             daysToKeep(2)
