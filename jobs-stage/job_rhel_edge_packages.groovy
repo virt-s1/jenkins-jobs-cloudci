@@ -37,6 +37,10 @@ packages.each { pkg->
                                             selector("method = 'buildArch' AND new = 'CLOSED'")
                                             checks {
                                                 msgCheck {
+                                                    field('$.info.arch')
+                                                    expectedValue('x86_64')
+                                                }
+                                                msgCheck {
                                                     field('$.info.request[0]')
                                                     expectedValue(expected)
                                                 }
@@ -56,7 +60,7 @@ packages.each { pkg->
                             remote {
                                 url(repo)
                             }
-                            branch('*/master')
+                            branch('*/main')
                         }
                     }
                     lightweight(true)
